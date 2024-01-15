@@ -22,6 +22,7 @@ extern crate alloc;
 mod fault_ids;
 #[cfg(feature = "fault-proof")]
 mod fault_monitor;
+#[cfg(target_os = "zkvm")]
 pub mod guest;
 #[cfg(not(target_os = "zkvm"))]
 mod host;
