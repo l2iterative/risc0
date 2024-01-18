@@ -60,7 +60,7 @@ fn download_zkr() {
             return;
         }
     } else {
-        std::fs::remove_file(out_path).unwrap();
+        std::fs::remove_file(&out_path).unwrap();
     }
 
     if std::fs::metadata(&src_path).is_ok() {
