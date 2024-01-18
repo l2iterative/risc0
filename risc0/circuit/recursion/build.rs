@@ -53,8 +53,8 @@ fn download_zkr() {
     let out_dir = env::var("OUT_DIR").unwrap();
     let out_dir = Path::new(&out_dir);
     if std::fs::metadata(&src_path).is_ok() {
-        let data = std::fs::read(src_path).unwrap();
-        if sha2::Sha256::digest(data).to_vec() == decode_hex(SHA256_HASH) {
+        let data = std::fs::read(&src_path).unwrap();
+        if sha2::Sha256::digest(data).to_vec() == decode_hex(SHA256_HASH).unwrap() {
             let tgt_path = out_dir.join(FILENAME);
             std::fs::copy(&src_path, &tgt_path).unwrap();
             return;
